@@ -1,15 +1,37 @@
 type Props = {
-    squares: string[],
-    setSquares: React.Dispatch<React.SetStateAction<string[]>>,
-    playersTurn: boolean,
-    setPlayersTurn: React.Dispatch<React.SetStateAction<boolean>>
-}
+  squares: string[];
+  setSquares: React.Dispatch<React.SetStateAction<string[]>>;
+  playersTurn: boolean;
+  setPlayersTurn: React.Dispatch<React.SetStateAction<boolean>>;
+  val: string;
+  index: number;
+};
 
-const Square = ({ squares, playersTurn}: Props) => {
-    console.log(squares, playersTurn)
+const Square = ({
+  squares,
+  setSquares,
+  playersTurn,
+  setPlayersTurn,
+  val,
+  index,
+}: Props) => {
+  const handleClick = () => {
+    if (!val && playersTurn === true) {
+      squares.splice(index, 1, "X");
+      setSquares(squares);
+      setPlayersTurn(!playersTurn);
+    } else {
+      squares.splice(index, 1, "O");
+      setSquares(squares);
+      setPlayersTurn(!playersTurn);
+    }
+  };
+
   return (
-    <div></div>
-  )
-}
+  <div className="square" onClick={handleClick}>
+    {val === 'O' ? <img alt="" src="src/assets/christmas-wreath.png" /> : val}
+  </div>
+  ) 
+};
 
-export default Square
+export default Square;
