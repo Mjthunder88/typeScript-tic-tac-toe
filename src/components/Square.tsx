@@ -28,10 +28,10 @@ const Square = ({
   };
 
   return (
-  <div className="square" onClick={handleClick}>
-    {val === 'O' ? <img alt="" src="src/assets/christmas-wreath.png" /> : val}
-  </div>
-  ) 
+    <div className="square" onClick={handleClick}>
+      {val === "O" ? val : val}
+    </div>
+  );
 };
 
 export default Square;
