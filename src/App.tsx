@@ -35,6 +35,7 @@ function App() {
   };
 
   return (
+    <div className="card">
     <div className="App">
       <span>{calculateWinner(squares)}</span>
       <div className="container">
@@ -51,8 +52,11 @@ function App() {
           );
         })}
       </div>
-      <button onClick={handleClick}>Reset</button>
+      <button className="button" onClick={handleClick}>Reset</button>
     </div>
+
+    </div>
+
   );
 }
 
